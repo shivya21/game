@@ -1,0 +1,129 @@
+#navBelow {
+    max-width: 100%;
+    height: 300px;
+    background-image: url(../assets/img/v4Qykv.png);
+    background-size: cover;
+    padding-left: 10%;
+    padding-top: 100px;
+    color: yellow;
+}
+.sorting-bar {
+    height: 60px;
+    background-color:#f8f9fa;
+    margin-bottom: 20px;
+}
+.card {
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top: 15px;
+    width: 100%;
+    height: 395px;
+    background: #fff;
+    border-top-right-radius: 10px;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+    transition: all 0.2s ease-out !important;
+    text-decoration: none;
+}
+.education {
+    --bg-color: #ffd861;
+    --bg-color-light: #ffeeba;
+    --text-color-hover: #4C5656;
+    --box-shadow-color: rgba(255, 215, 97, 0.48);
+}
+.starred {
+    position: absolute;
+    right: 0;
+    top: 0;
+    float: right;
+    z-index: 100;
+    height: 40px;
+}
+.starred img {
+    width: 40px;
+    height: 40px;
+}
+.circle {
+    margin-bottom: 7px;
+    width: 131px;
+    height: 131px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease-out;
+}
+.circle img {
+    height: 70px;
+    width: 70px;
+    z-index: 1;
+    transform: translateZ(0);
+}
+.circleText {
+    margin: 5px auto 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    background: #38a9e4;
+}
+.questans {
+    width: 100% !important;
+    background-color: orange !important;
+}
+.row h6 {
+    font-size: 15px;
+}
+a h6 {
+    color: #ff48a0;
+}
+.belowOne {
+    height: 100px;
+}
+.autocomplete {
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    top: 40px;
+  }
+.autocomplete-items {
+    height: auto;
+    border: 1px solid #4C5656;
+    padding: 10px;
+  }
+  .sort-button{
+    float: right;
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+  span.stars, span.stars span {
+    display: block;
+   /* Download the star image here: http://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css */
+    background: url('../assets/stars.png') 0 -16px repeat-x;
+    height: 18px;
+    width: 160px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+
+.alignright {
+  margin: 0 auto;
+}
+.stars-space{
+    width: 100%;
+}
+.heading-color{
+    color: white
+}
+.autocomplete-items:hover{
+    background-color: blue;
+}

@@ -1,0 +1,87 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand">{{title}}</a>
+  <form class="form-inline col-md-4">
+    <input class="form-control mr-sm-2 col-md-12" [formControl]="typeahead" [ngModel]='searchTitle' type="search" placeholder="Search"
+      aria-label="Search" (input)="suggest()">
+    <div class="autocomplete" *ngIf="suggestions.length">
+      <div class="autocomplete-items" *ngFor="let s of suggestions" (click)="autocompleteSelected(s.title)">{{s.title}}</div>
+    </div>
+  </form>
+</nav>
+<div id="navBelow">
+  <h1>GAMES ARENA</h1>
+  <h3 class="heading-color">Only place to discover ultimate games</h3>
+</div>
+<div class="sorting-bar">
+  <div class="container">
+    <div class="row sort-button">
+      <div class="btn-group" data-toggle="dropdown">
+        <button type="button" class="btn btn-primary">Rating</button>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split">
+          <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" (click)="sort(2)">High to low</a>
+          <a class="dropdown-item" (click)="sort(1)">Low to High</a>
+          <a class="dropdown-item" (click)="sort(0)">None</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let game of data;">
+      <span>
+        <div class="card education">
+          <div class="starred" *ngIf="game.editors_choice === 'Y'">
+            <img src="../assets/icons/ribbon.svg" title="Editor’s choice" alt="Editor’s choice">
+          </div>
+          <div class="circle">
+            <img *ngIf="game.genre" src="../assets/icons/{{game.genre}}.svg">
+            <img *ngIf="!game.genre" src="../assets/icons/others.svg">
+          </div>
+          <h6>{{game.genre}}</h6>
+          <div class="belowOne">
+            <h5>{{game.title}}</h5>
+          </div>
+          <div class="stars-space">
+            <span class="stars alignright">
+              <span [ngStyle]="{ 'width': getStars(game.score) }"></span>
+            </span>
+          </div>
+          <div>
+            <div class="circleText">{{game.score}}</div>
+          </div>
+          <br>
+          <div class="questans">
+            <div class="quest">Platform:
+              <span class="ans">{{game.platform}}</span>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  <ul class="pagination justify-content-center" *ngIf="currentPage">
+    <li class="page-item" *ngIf="currentPage - 2 > 0 ">
+      <a class="page-link" href="#" (click)="setPage(currentPage - 2)">Previous</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage - 1 > 0 ">
+      <a class="page-link" href="#" (click)="setPage(currentPage - 1)">{{currentPage -1}}</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">
+        {{currentPage}}
+      </a>
+    </li>
+    <li class="page-item" *ngIf="currentPage + 1 < totalPage ">
+      <a class="page-link" href="#" (click)="setPage(currentPage + 1)">{{currentPage + 1}}</a>
+    </li>
+    <li class="page-item" *ngIf="currentPage + 2 < totalPage">
+      <a class="page-link" href="#" (click)="setPage(currentPage + 2)">Next</a>
+    </li>
+  </ul>
+</div>
